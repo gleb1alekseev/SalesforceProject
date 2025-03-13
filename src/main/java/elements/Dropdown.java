@@ -10,6 +10,9 @@ public class Dropdown {
     private static final String ACCOUNT_DROPDOWN_XPATH = "//*[contains(text(), '%s')]/ancestor::*[contains(@slot, 'inputField')]//button";
     private static final String ACCOUNT_DROPDOWN_OPTION_XPATH = "//*[contains(@title, '%s')]";
 
+    private static final String CONTACT_DROPDOWN_ACCOUNT_NAME_XPATH = "//*[contains(text(), '')]/ancestor::*[contains(@slot, 'inputField')]//input[@placeholder='Search Accounts...']";
+    private static final String CONTACT_DROPDOWN_ACCOUNT_NAME_OPTION_XPATH = "//*[contains(@title, 'account1189971751')]";
+
     public Dropdown(WebDriver driver, String label) {
         this.label = label;
         this.driver = driver;
@@ -18,5 +21,10 @@ public class Dropdown {
     public void accountSelectOption(String option){
         driver.findElement(By.xpath(String.format(ACCOUNT_DROPDOWN_XPATH, label))).click();
         driver.findElement(By.xpath(String.format(ACCOUNT_DROPDOWN_OPTION_XPATH, label))).click();
+    }
+
+    public void contactSelectAccountOption(String option){
+        driver.findElement(By.xpath(String.format(CONTACT_DROPDOWN_ACCOUNT_NAME_XPATH, label))).click();
+        driver.findElement(By.xpath(String.format(CONTACT_DROPDOWN_ACCOUNT_NAME_OPTION_XPATH, label))).click();
     }
 }
