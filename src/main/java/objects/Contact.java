@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 
 public class Contact {
     private String contactLastName;
+    private String contactPhone;
     private String accountName;
 }

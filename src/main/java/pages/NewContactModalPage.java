@@ -31,6 +31,7 @@ public class NewContactModalPage extends BasePage{
     public void createNewContact(Contact contact) {
         new Input(driver, "Last Name").writeTextToInput(contact.getContactLastName());
         new Dropdown(driver, "Account Name").contactSelectAccountOption(contact.getAccountName());
+        new Input(driver, "Phone").writeTextToInput(contact.getContactPhone());
         new Button(driver).clickButton(saveButton);
     }
 }

@@ -31,7 +31,7 @@ public class NewAccountModalPage extends BasePage{
 
     public void createNewAccount(Account account) {
         new Input(driver, "Account Name").writeTextToInput(account.getAccountName());
-//        new Input(driver, "Website").writeTextToInput(account.getWebSite());
+        new Input(driver, "Website").writeTextToInput(account.getWebSite());
 //        new Dropdown(driver, "Type").accountSelectOption(account.getType());
 //        new Input(driver, "Description").writeTextToInput(account.getDescription());
 //        new Input(driver, "Phone").writeTextToInput(account.getPhone());
