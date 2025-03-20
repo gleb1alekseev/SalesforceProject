@@ -55,8 +55,8 @@ public class BaseTest implements ITestConstants, IConstants {
         initPages();
     }
 
-    @AfterMethod
-    public void endTest(){
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void endTest(){
+//        driver.quit();
+//    }
 }

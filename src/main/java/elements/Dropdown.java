@@ -20,7 +20,7 @@ public class Dropdown {
 
     public void accountSelectOption(String option){
         driver.findElement(By.xpath(String.format(ACCOUNT_DROPDOWN_XPATH, label))).click();
-        driver.findElement(By.xpath(String.format(ACCOUNT_DROPDOWN_OPTION_XPATH, label))).click();
+        driver.findElement(By.xpath(String.format(ACCOUNT_DROPDOWN_OPTION_XPATH, option))).click();
     }
 
     public void contactSelectAccountOption(String option){

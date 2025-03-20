@@ -1,7 +1,6 @@
 package pages;
 
 import objects.Contact;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,14 +31,10 @@ public class ContactPage extends BasePage{
         return new HomePage(driver);
     }
 
-    public HomePage contactPageId (Contact contact){
+    public NewContactModalPage contactPageId (Contact contact){
         contactLink.click();
-        return new HomePage(driver);
+        return new NewContactModalPage(driver);
     }
 
-    public static final String DATA_BY_FIELD_NAME_XPATH = "//a[contains(@href, '/lightning/r/Account/') and contains(text(), '%s')]";
 
-    public String getStringValueByName(String name){
-        return driver.findElement(By.xpath(String.format(DATA_BY_FIELD_NAME_XPATH, name))).getText();
-    }
 }

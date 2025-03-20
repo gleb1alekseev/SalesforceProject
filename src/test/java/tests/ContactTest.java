@@ -39,6 +39,7 @@ public class ContactTest extends BaseTest{
                 .openPage(CONTACT_LIST_URL);
         Assert.assertEquals(contactListPage.getExistContactName(contact.getContactLastName()), contact.getContactLastName());
         Assert.assertEquals(contactListPage.getExistAccountName(contact.getAccountName()), contact.getAccountName());
+        Assert.assertEquals(contactListPage.getExistContactPhone(contact.getContactPhone()), contact.getContactPhone());
     }
 
     @Test
@@ -53,9 +54,14 @@ public class ContactTest extends BaseTest{
         Contact contact = new Contact();
         contact.setContactLastName("ContactTest");
         contact.setContactPhone("123456789");
+        contact.setAccountName(account.getAccountName());
         loginPage
                 .openPage(LOGIN_URL)
                 .login(username, password);
+        newAccountModalPage
+                .openPage(NEW_ACCOUNT_MODAL_URL)
+                .openPage(NEW_ACCOUNT_MODAL_URL)
+                .createNewAccount(account);
         newContactModalPage
                 .openPage(NEW_CONTACT_MODAL_URL)
                 .openPage(NEW_CONTACT_MODAL_URL)
@@ -65,6 +71,7 @@ public class ContactTest extends BaseTest{
         contactPage
                 .contactPageId(contact);
         Assert.assertEquals(contactListPage.getExistContactName(contact.getContactLastName()), contact.getContactLastName());
-        Assert.assertEquals(contactPage.getStringValueByName(account.getAccountName()), account.getAccountName());
+        Assert.assertEquals(contactListPage.getExistAccountName(contact.getAccountName()), contact.getAccountName());
+        Assert.assertEquals(contactListPage.getExistContactPhone(contact.getContactPhone()), contact.getContactPhone());
     }
 }
