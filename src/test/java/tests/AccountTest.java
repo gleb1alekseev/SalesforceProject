@@ -27,6 +27,7 @@ public class AccountTest extends BaseTest{
                 .createNewAccount(account);
         accountListPage.openPage(ACCOUNT_LIST_URL);
         Assert.assertEquals(accountListPage.getExistAccountName(account.getAccountName()), account.getAccountName());
-//        Assert.assertEquals(accountListPage.getExistPhoneNumberByAccountName(account.getAccountName()), account.getPhone());
+        Assert.assertEquals(accountListPage.getPhoneByAccountName(account.getPhone()), account.getPhone());
+        Assert.assertSame(accountListPage.getOwnerByAccountName(""), "GAlek");
     }
 }

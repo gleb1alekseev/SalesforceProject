@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class AccountListPage extends BasePage{
     public static final String TABLE_XPATH = "//table";
     public static final String ACCOUNT_NAME_FIELD_XPATH = TABLE_XPATH + "//a[contains(@title, '%s')]";
-    public static final String PHONE_BY_ACCOUNT_NAME_XPATH = ACCOUNT_NAME_FIELD_XPATH + "/ancestor::tbody//span[contains(@class, 'forceOutputPhone')]";
-    public static final String ACCOUNT_OWNER_BY_ACCOUNT_NAME_XPATH = ACCOUNT_NAME_FIELD_XPATH + "/ancestor::tbody//span[contains(@class, 'uiOutputText')]";
+    public static final String PHONE_BY_ACCOUNT_NAME_XPATH = "//table//a[contains(@title, '')]/ancestor::tbody//span[contains(@class, 'forceOutputPhone')]";
+    public static final String OWNER_BY_ACCOUNT_NAME_XPATH = ACCOUNT_NAME_FIELD_XPATH + "/ancestor::tbody//span[contains(@class, 'uiOutputText')]";
 
     public AccountListPage(WebDriver driver) {
         super(driver);
@@ -22,12 +22,12 @@ public class AccountListPage extends BasePage{
         return driver.findElement(By.xpath(String.format(ACCOUNT_NAME_FIELD_XPATH, accountName))).getText();
     }
 
-    public String getExistPhoneNumberByAccountName(String accountName) {
-        return driver.findElement(By.xpath(String.format(PHONE_BY_ACCOUNT_NAME_XPATH, accountName))).getText();
+    public String getPhoneByAccountName(String phone) {
+        return driver.findElement(By.xpath(String.format(PHONE_BY_ACCOUNT_NAME_XPATH, phone))).getText();
     }
 
-    public String getExistAccountOwnerByAccountName(String accountName) {
-        return driver.findElement(By.xpath(String.format(ACCOUNT_OWNER_BY_ACCOUNT_NAME_XPATH, accountName))).getText();
+    public String getOwnerByAccountName(String ownerName) {
+        return driver.findElement(By.xpath(String.format(OWNER_BY_ACCOUNT_NAME_XPATH, ownerName))).getText();
     }
 
     public AccountPage clickOnAccountName(String accountName){
