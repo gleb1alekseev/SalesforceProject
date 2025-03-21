@@ -28,6 +28,6 @@ public class AccountTest extends BaseTest{
         accountListPage.openPage(ACCOUNT_LIST_URL);
         Assert.assertEquals(accountListPage.getExistAccountName(account.getAccountName()), account.getAccountName());
         Assert.assertEquals(accountListPage.getPhoneByAccountName(account.getPhone()), account.getPhone());
-        Assert.assertSame(accountListPage.getOwnerByAccountName(""), "GAlek");
+        Assert.assertSame(accountListPage.getOwnerByAccountName(account.getAccountName()), "GAlek");
     }
 }
