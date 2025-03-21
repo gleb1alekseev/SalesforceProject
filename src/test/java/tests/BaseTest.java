@@ -2,11 +2,11 @@ package tests;
 
 import constants.IConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.aspectj.lang.annotation.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 
@@ -21,6 +21,9 @@ public class BaseTest implements ITestConstants, IConstants {
     HomePage homePage;
     LoginPage loginPage;
     NewAccountModalPage newAccountModalPage;
+    ContactPage contactPage;
+    NewContactModalPage newContactModalPage;
+    ContactListPage contactListPage;
 
     public void initPages(){
         accountPage = new AccountPage(driver);
@@ -28,6 +31,9 @@ public class BaseTest implements ITestConstants, IConstants {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         newAccountModalPage = new NewAccountModalPage(driver);
+        contactPage = new ContactPage(driver);
+        newContactModalPage = new NewContactModalPage(driver);
+        contactListPage = new ContactListPage(driver);
     }
 
     @BeforeMethod
@@ -45,5 +51,10 @@ public class BaseTest implements ITestConstants, IConstants {
         driver.manage().window().maximize();
         PageFactory.initElements(driver,this);
         initPages();
+    }
+
+    @AfterMethod
+    public void endTest(){
+        driver.quit();
     }
 }
