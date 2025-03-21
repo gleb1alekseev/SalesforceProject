@@ -8,6 +8,7 @@ public class AccountListPage extends BasePage{
     public static final String ACCOUNT_NAME_FIELD_XPATH = TABLE_XPATH + "//a[contains(@title, '%s')]";
     public static final String PHONE_BY_ACCOUNT_NAME_XPATH = "//table//a[contains(@title, '')]/ancestor::tbody//span[contains(@class, 'forceOutputPhone')]";
     public static final String OWNER_BY_ACCOUNT_NAME_XPATH = ACCOUNT_NAME_FIELD_XPATH + "/ancestor::tbody//span[contains(@class, 'uiOutputText')]";
+    public static final String ACCOUNT_PHONE_ON_ACCOUNT_PAGE_XPATH = TABLE_XPATH + "//span[contains(@class, 'forceOutputPhone')]";
 
     public AccountListPage(WebDriver driver) {
         super(driver);
@@ -35,4 +36,7 @@ public class AccountListPage extends BasePage{
         return new AccountPage(driver);
     }
 
+    public String getAccountPhone(String phone) {
+        return driver.findElement(By.xpath(String.format(ACCOUNT_PHONE_ON_ACCOUNT_PAGE_XPATH, phone))).getText();
+    }
 }
